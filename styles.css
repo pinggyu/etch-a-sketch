@@ -32,7 +32,6 @@ html {
     --clr-turquoise: #45B69C;
     --clr-orange: #FF8552;
     --clr-white: #F5F5F5;
-    --bg-primary: #2d3047;
 }
 
 .wrapper {
@@ -42,5 +41,53 @@ html {
 }
 
 body {
-    font-family: var(--ff-primary), ;
+    font-family: var(--ff-primary), sans-serif;
+    font-weight: normal;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    text-align: center;
+    line-height: 2rem;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
 }
+
+button {
+    font-family: var(--ff-primary), sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    text-align: center;
+    line-height: 2rem;
+}
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.penColor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+
+/* GRID */

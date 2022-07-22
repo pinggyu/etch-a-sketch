@@ -28,18 +28,18 @@
             <!-- Controls -->
             <div class="controls">
                 <div class="penColor">
-                    <input type="color">
+                    <input type="color" id="colorInput" value="#000000">
                     <p>Pen Color</p>
                 </div>
                 <div class="buttons">
                     <button id="defaultBtn">Default Mode</button>
-                    <button id="rainbowBtn">Rainbow mode</button>
+                    <button id="rainbowBtn">Rainbow Mode</button>
                     <button id="eraserBtn">Eraser</button>
                     <button id="clearBtn">Clear</button>
                 </div>
                 <div class="gridSize">
-                    <p>16x16</p>
-                    <input type="range" value="16" min="0" max="64" step="16">
+                    <p id="sizeDisplay">16 x 16</p>
+                    <input type="range" value="16" min="1" max="64" id="sizeDragger">
                 </div>
             </div>
             <!-- Drawing -->

@@ -1,4 +1,4 @@
-// TO DO: change grid size with the slider, change pen color with the color picker
+// TO DO: continuous rainbow mode, onpress draw instead of just hovering
 
 // create namespace object with default values 
 const app = {
@@ -12,7 +12,10 @@ const app = {
     clearBtn: document.getElementById('clearBtn'),
     eraserBtn: document.getElementById('eraserBtn'),
     defaultBtn: document.getElementById('defaultBtn'),
-    rainbowBtn: document.getElementById('rainbowBtn')
+    rainbowBtn: document.getElementById('rainbowBtn'),
+    sizeDragger: document.getElementById('sizeDragger'),
+    sizeDisplay: document.getElementById('sizeDisplay'),
+    colorInput: document.getElementById('colorInput')
 };
 
 app.init = function() {
@@ -20,6 +23,9 @@ app.init = function() {
     app.clearBtn.addEventListener('click', app.reloadGrid);
     app.defaultBtn.addEventListener('click', app.updateMode);
     app.eraserBtn.addEventListener('click', app.updateMode);
+    app.rainbowBtn.addEventListener('click', app.updateMode);
+    app.sizeDragger.addEventListener('input', app.updateSize);
+    app.colorInput.addEventListener('input', app.changeColor);
     app.rainbowBtn.addEventListener('click', app.updateMode);
 }
 
@@ -34,17 +40,34 @@ app.updateMode = function(e){
         app.penColor = '#FFF';
     } else if (app.mode === 'Default Mode'){
         app.penColor = app.DEFAULT_PEN_COLOR;
-    } 
+    } else if (app.mode === 'Rainbow Mode'){
+        app.createRandomColors();
+    }
+}
+
+app.createRandomColors = function(){
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    app.penColor = `#${randomColor}`;
+}
+
+app.updateSize = function(e){
+    app.gridSize = app.sizeDragger.value;
+    app.sizeDisplay.textContent = `${app.gridSize} x ${app.gridSize}`;
+    app.reloadGrid();
 }
 
 app.showColor = function() {
     gridItems = document.querySelectorAll('.gridItem');
-    gridItems.forEach(item => item.addEventListener('mousedown', function(e){
+    gridItems.forEach(item => item.addEventListener('mouseover', function(e){
         if (app.mode = 'default'){
             item.style.backgroundColor = app.penColor;
         }
     }));
 };
+
+app.changeColor = function(e){
+    app.penColor = app.colorInput.value;
+}
 
 app.createGrid = function(){
     const grid = document.getElementById('grid');

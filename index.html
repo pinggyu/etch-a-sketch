@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" size="16x16" href="./icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" size="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
     <script defer src="./script.js"></script>
     <title>Create Pixel Art</title>
 </head>
@@ -26,21 +29,22 @@
             <div class="controls">
                 <div class="penColor">
                     <input type="color">
-                    <p>Pen Colour</p>
+                    <p>Pen Color</p>
                 </div>
                 <div class="buttons">
-                    <button>Rainbow mode</button>
-                    <button>Eraser</button>
-                    <button>Clear</button>
+                    <button id="defaultBtn">Default Mode</button>
+                    <button id="rainbowBtn">Rainbow mode</button>
+                    <button id="eraserBtn">Eraser</button>
+                    <button id="clearBtn">Clear</button>
                 </div>
                 <div class="gridSize">
                     <p>16x16</p>
-                    <input type="range" value="16" min="1" max="64">
+                    <input type="range" value="16" min="0" max="64" step="16">
                 </div>
             </div>
             <!-- Drawing -->
             <div class="drawBoard">
-                <div class="grid">
+                <div class="grid" id="grid">
                     <!-- square divs will be appended here -->
                 </div>
             </div>

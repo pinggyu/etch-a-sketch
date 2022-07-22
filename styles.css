@@ -38,6 +38,11 @@ html {
     max-width: 1480px;
     margin: 0 auto;
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 
 body {
@@ -91,3 +96,17 @@ button:hover {
 
 
 /* GRID */
+
+.grid {
+    width: 350px;
+    height: 350px;
+    background-color: #FFF;
+    display: grid;
+}
+
+@media (min-width: 800px) {
+    .grid {
+        width: 650px;
+        height: 650px;
+    }
+}

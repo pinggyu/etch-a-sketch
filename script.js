@@ -1,4 +1,4 @@
-// TO DO: continuous rainbow mode, onpress draw instead of just hovering
+// TO DO: onpress draw instead of just hovering
 
 // create namespace object with default values 
 const app = {
@@ -20,34 +20,37 @@ const app = {
 
 app.init = function() {
     app.createGrid();
+    app.showColor();
     app.clearBtn.addEventListener('click', app.reloadGrid);
     app.defaultBtn.addEventListener('click', app.updateMode);
     app.eraserBtn.addEventListener('click', app.updateMode);
     app.rainbowBtn.addEventListener('click', app.updateMode);
     app.sizeDragger.addEventListener('input', app.updateSize);
     app.colorInput.addEventListener('input', app.changeColor);
-    app.rainbowBtn.addEventListener('click', app.updateMode);
 }
 
 app.reloadGrid = function() {
     grid.innerHTML = ''
     app.createGrid();
+    // once board is clear, still display current color in picker
+    app.changeColor();
+    app.showColor();
+}
+
+app.createRandomColor = function(){
+    let randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    return randomColor;
 }
 
 app.updateMode = function(e){
     app.mode = e.target.textContent;
     if (app.mode === 'Eraser'){
         app.penColor = '#FFF';
+    // if back to default mode, then apply color currently in color input selector
     } else if (app.mode === 'Default Mode'){
-        app.penColor = app.DEFAULT_PEN_COLOR;
-    } else if (app.mode === 'Rainbow Mode'){
-        app.createRandomColors();
+        app.changeColor();
     }
-}
-
-app.createRandomColors = function(){
-    let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    app.penColor = `#${randomColor}`;
+    app.showColor();
 }
 
 app.updateSize = function(e){
@@ -59,9 +62,10 @@ app.updateSize = function(e){
 app.showColor = function() {
     gridItems = document.querySelectorAll('.gridItem');
     gridItems.forEach(item => item.addEventListener('mouseover', function(e){
-        if (app.mode = 'default'){
-            item.style.backgroundColor = app.penColor;
+        if (app.mode === 'Rainbow Mode'){
+            app.penColor = app.createRandomColor();
         }
+        item.style.backgroundColor = app.penColor;
     }));
 };
 
@@ -78,7 +82,6 @@ app.createGrid = function(){
         gridItem.classList.add('gridItem');
         grid.appendChild(gridItem);
     }
-    app.showColor();
 }
 
 app.init();

@@ -97,6 +97,10 @@ button:hover {
 
 /* GRID */
 
+.drawBoard {
+    padding-bottom: 1.5rem;
+}
+
 .grid {
     width: 350px;
     height: 350px;

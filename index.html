@@ -16,40 +16,49 @@
 </head>
 
 <body>
-        
-    <header>
-        <div class="wrapper">
-            <h1>Etch-A-Sketch</h1>
-        </div>
-    </header>
+    
+    <div class="pageContainer">
+        <header>
+            <div class="wrapper">
+                <h1>Etch-A-Sketch</h1>
+            </div>
+        </header>
 
-    <main>
-        <div class="wrapper">
-            <!-- Controls -->
-            <div class="controls">
-                <div class="penColor">
-                    <input type="color" id="colorInput" value="#000000">
-                    <p>Pen Color</p>
+        <main>
+            <div class="wrapper">
+                <!-- Controls -->
+                <div class="controls">
+                    <div class="penColor">
+                        <input type="color" id="colorInput" value="#000000">
+                        <p>Pen Color</p>
+                    </div>
+                    <div class="buttons">
+                        <button id="defaultBtn">Default Mode</button>
+                        <button id="rainbowBtn">Rainbow Mode</button>
+                        <button id="eraserBtn">Eraser</button>
+                        <button id="clearBtn">Clear</button>
+                    </div>
+                    <div class="gridSize">
+                        <p id="sizeDisplay">16 x 16</p>
+                        <input type="range" value="16" min="1" max="64" id="sizeDragger">
+                    </div>
                 </div>
-                <div class="buttons">
-                    <button id="defaultBtn">Default Mode</button>
-                    <button id="rainbowBtn">Rainbow Mode</button>
-                    <button id="eraserBtn">Eraser</button>
-                    <button id="clearBtn">Clear</button>
-                </div>
-                <div class="gridSize">
-                    <p id="sizeDisplay">16 x 16</p>
-                    <input type="range" value="16" min="1" max="64" id="sizeDragger">
+                <!-- Drawing -->
+                <div class="drawBoard">
+                    <div class="grid" id="grid">
+                        <!-- square divs will be appended here -->
+                    </div>
                 </div>
             </div>
-            <!-- Drawing -->
-            <div class="drawBoard">
-                <div class="grid" id="grid">
-                    <!-- square divs will be appended here -->
-                </div>
-            </div>
-        </div>
-    </main>
+        </main>
+
+        <footer>Copyright ©
+            <a href="https://github.com/pinggyu">
+                Ping Yu
+                <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+        </footer>
+    </div>
     
 </body>
 </html>

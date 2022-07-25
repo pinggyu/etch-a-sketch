@@ -45,6 +45,13 @@ html {
     gap: 2rem;
 }
 
+.pageContainer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 body {
     font-family: var(--ff-primary), sans-serif;
     font-weight: normal;
@@ -88,10 +95,12 @@ button {
 button {
     cursor: pointer;
     transition: 0.3s;
+    border-style: none;
 }
 
 button:hover {
-    opacity: 0.5;
+    background-color: var(--clr-turquoise);
+    color: var(--clr-white);
 }
 
 
@@ -113,4 +122,24 @@ button:hover {
         width: 650px;
         height: 650px;
     }
+}
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: var(--clr-white);
+    color: var(--clr-primary);
+    font-family: var(--ff-heading), sans-serif;
+    text-transform: uppercase;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--clr-primary);
+}
+
+footer a:hover {
+    color: var(--clr-turquoise);
 }
